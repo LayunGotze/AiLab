@@ -4,4 +4,5 @@ import json
 from django.http import JsonResponse
 # Create your views here.
 def test(request):
-    return JsonResponse({"msg":"success"})
+    msg=request.GET.get('msg','success')
+    return JsonResponse({"msg":msg})
