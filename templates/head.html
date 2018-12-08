@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+		<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+		<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+		<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+                <div class="header-top d-flex justify-content-between align-items-center">
+						<div class="logo">
+							<a href="{% url 'question' %}"><img src="static/img/logo.png" alt=""></a>
+						</div>
+						<div class="main-menubar d-flex align-items-center">
+							<nav>
+								<a href="{% url 'question' %}">主页</a>
+								<a href="{% url 'question' %}">选题</a>
+								<a href="{% url 'rank' %}">排名</a>
+							</nav>
+							<div>登录</div>
+						</div>
+					</div>
