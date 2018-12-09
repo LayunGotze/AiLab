@@ -1,0 +1,40 @@
+                            <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" />
+                            <div class="row">
+                                <div class="col-lg-3"><h6 style="margin-top: 10px">网络类型</h6></div>
+                                <div class="col-lg-6">
+                                    <div class="default-select">
+										<select>
+											<option value="1">全连接层</option>
+											<option value="1">卷积层</option>
+                                            <option value="1">池化层</option>
+										</select>
+									</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3"><h6 style="margin-top: 10px">激活函数</h6></div>
+                                <div class="col-lg-6">
+                                    <div class="default-select">
+										<select>
+											<option value="1">relu</option>
+											<option value="1">sigmoid</option>
+										</select>
+									</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="switch-wrap d-flex justify-content-between">
+										<h6 style="margin-top: 10px">使用Dropout</h6>
+										<div class="confirm-switch" style="margin-top: 10px">
+											<input type="checkbox" id="confirm-switch" checked>
+											<label for="confirm-switch"></label>
+										</div>
+									</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mt-6">
+									<input type="text" name="Dropout参数" placeholder="Dropout参数" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'" required class="single-input">
+								    </div>
+                                </div>
+                            </div>
