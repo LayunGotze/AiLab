@@ -68,15 +68,11 @@
 		<section class="section-gap skill-area" style="height: 150%">
 			<div class="container">
 				<div class="row justify-content-between">
-					<div class="col-lg-6" id="left">
+					<div class="col-lg-7" id="left">
 						<div class="skill-content">
 							<h2>模型可视化效果图</h2>
 							<div class="single-gallery-image" style="background: url({% static 'img/net.png' %}); height: 300px"></div>
-							</a>
-							{#
-							<a href="#" class="primary-btn">View More
-								<span class="lnr lnr-arrow-right"></span>
-							</a>#}
+
 							<br>
 							<br>
 							<div class="row">
@@ -94,13 +90,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6" id="right">
+					<div class="col-lg-5" id="right">
 						<div class="total-progress-bar" id="model_list">
 							<div class="row">
 								<div class="col-lg-8">
 									<h2>网络参数</h2>
 								</div>
-								<div class="col-lg-4">
+								<div class="col-lg-3" style="margin-left: 5px">
 									<a href="javascript:void(0);" class="genric-btn success-border circle" onclick="add_model();return false;">+</a>
 								</div>
 							</div>
@@ -111,11 +107,11 @@
 							<br>
 							<br>
 							<hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" />
-							<div class="row">
+							<div class="row"  style="margin-bottom: 10px">
 								<div class="col-lg-3">
 									<h6 style="margin-top: 10px">网络类型</h6>
 								</div>
-								<div class="col-lg-6">
+								<div class="col-lg-5" style="margin-left: 8px">
 									<div class="default-select">
 										<select>
 											<option value="1">全连接层</option>
@@ -124,12 +120,15 @@
 										</select>
 									</div>
 								</div>
+                                <div class="col-lg-3">
+									<a href="javascript:void(0);" class="genric-btn danger-border circle">-</a>
+								</div>
 							</div>
-							<div class="row">
+							<div class="row" style="margin-bottom: 10px">
 								<div class="col-lg-3">
 									<h6 style="margin-top: 10px">激活函数</h6>
 								</div>
-								<div class="col-lg-6">
+								<div class="col-lg-6" style="margin-left: 8px">
 									<div class="default-select">
 										<select>
 											<option value="1">relu</option>
@@ -139,16 +138,112 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-lg-6">
+								<div class="col-lg-5">
 									<div class="switch-wrap d-flex justify-content-between">
 										<h6 style="margin-top: 10px">使用Dropout</h6>
-										<div class="confirm-switch" style="margin-top: 10px">
+										<div class="confirm-switch" style="margin-top: 10px;margin-left: 20px">
 											<input type="checkbox" id="confirm-switch" checked>
 											<label for="confirm-switch"></label>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-6">
+								<div class="col-lg-6" style="margin-left: 20px">
+									<div class="mt-6">
+										<input type="text" name="Dropout参数" placeholder="Dropout参数" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
+										 required class="single-input">
+									</div>
+								</div>
+							</div>
+                            <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" />
+							<div class="row"  style="margin-bottom: 10px">
+								<div class="col-lg-3">
+									<h6 style="margin-top: 10px">网络类型</h6>
+								</div>
+								<div class="col-lg-5" style="margin-left: 8px">
+									<div class="default-select">
+										<select>
+											<option value="1">全连接层</option>
+											<option value="1">卷积层</option>
+											<option value="1">池化层</option>
+										</select>
+									</div>
+								</div>
+                                <div class="col-lg-3">
+									<a href="javascript:void(0);" class="genric-btn danger-border circle">-</a>
+								</div>
+							</div>
+							<div class="row" style="margin-bottom: 10px">
+								<div class="col-lg-3">
+									<h6 style="margin-top: 10px">激活函数</h6>
+								</div>
+								<div class="col-lg-6" style="margin-left: 8px">
+									<div class="default-select">
+										<select>
+											<option value="1">relu</option>
+											<option value="1">sigmoid</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-5">
+									<div class="switch-wrap d-flex justify-content-between">
+										<h6 style="margin-top: 10px">使用Dropout</h6>
+										<div class="confirm-switch" style="margin-top: 10px;margin-left: 20px">
+											<input type="checkbox" id="confirm-switch" checked>
+											<label for="confirm-switch"></label>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6" style="margin-left: 20px">
+									<div class="mt-6">
+										<input type="text" name="Dropout参数" placeholder="Dropout参数" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
+										 required class="single-input">
+									</div>
+								</div>
+							</div>
+                            <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" />
+							<div class="row"  style="margin-bottom: 10px">
+								<div class="col-lg-3">
+									<h6 style="margin-top: 10px">网络类型</h6>
+								</div>
+								<div class="col-lg-5" style="margin-left: 8px">
+									<div class="default-select">
+										<select>
+											<option value="1">全连接层</option>
+											<option value="1">卷积层</option>
+											<option value="1">池化层</option>
+										</select>
+									</div>
+								</div>
+                                <div class="col-lg-3">
+									<a href="javascript:void(0);" class="genric-btn danger-border circle">-</a>
+								</div>
+							</div>
+							<div class="row" style="margin-bottom: 10px">
+								<div class="col-lg-3">
+									<h6 style="margin-top: 10px">激活函数</h6>
+								</div>
+								<div class="col-lg-6" style="margin-left: 8px">
+									<div class="default-select">
+										<select>
+											<option value="1">relu</option>
+											<option value="1">sigmoid</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-5">
+									<div class="switch-wrap d-flex justify-content-between">
+										<h6 style="margin-top: 10px">使用Dropout</h6>
+										<div class="confirm-switch" style="margin-top: 10px;margin-left: 20px">
+											<input type="checkbox" id="confirm-switch" checked>
+											<label for="confirm-switch"></label>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6" style="margin-left: 20px">
 									<div class="mt-6">
 										<input type="text" name="Dropout参数" placeholder="Dropout参数" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
 										 required class="single-input">
@@ -156,16 +251,16 @@
 								</div>
 							</div>
 
-							<div class="row" id="pred">
-								<br>
-								<br>
-								<a href="#" class="genric-btn success circle arrow">运行
-									<span class="lnr lnr-arrow-right"></span>
-								</a>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="#" class="genric-btn info circle arrow">提交
-									<span class="lnr lnr-arrow-right"></span>
-								</a>
+							<div class="row" style="margin-top: 20px">
+                                <div class="col-md-5" style="height: 50px">
+                                    <a href="javascript:;" class="genric-btn success circle arrow">运行
+									<span class="lnr lnr-arrow-right"></span></a>
+                                </div>
+								 <div class="col-lg-4" style="height: 50px">
+                                    <a href="javascript:;" class="genric-btn info circle arrow">提交
+                                        <span class="lnr lnr-arrow-right"></span>
+                                    </a>
+                                 </div>
 							</div>
 						</div>
 					</div>
@@ -199,6 +294,7 @@
 									</div>
 								</div>
 							</div>
+                            <br><br><br>
 							<div class="row">
 								<div class="col-lg-3">
 									<h6 style="margin-top: 10px">激活函数</h6>
@@ -212,6 +308,7 @@
 									</div>
 								</div>
 							</div>
+                            <br>
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="switch-wrap d-flex justify-content-between">
@@ -239,7 +336,13 @@
 	function change_style() {
 		left = $('#left').html();
 		right = $('#right').html();
+		left_style=$('#left').attr('class');
+		right_style=$('#right').attr('class');
+		//alert(right_style);
+		$('#left').attr('class',right_style);
+		$('#right').attr('class',left_style);
 		$('#left').html(right);
 		$('#right').html(left);
+
 	}
 </script>
