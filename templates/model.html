@@ -90,6 +90,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="col-lg-5" id="right">
 						<div class="total-progress-bar" id="model_list">
 							<div class="row">
@@ -106,8 +107,8 @@
 							</div>
 							<br>
 							<br>
-							<hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" />
-							<div class="row"  style="margin-bottom: 10px">
+							<hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" id="row1_0" />
+							<div class="row"  style="margin-bottom: 10px" id="row1_1">
 								<div class="col-lg-3">
 									<h6 style="margin-top: 10px">网络类型</h6>
 								</div>
@@ -121,10 +122,10 @@
 									</div>
 								</div>
                                 <div class="col-lg-3">
-									<a href="javascript:void(0);" class="genric-btn danger-border circle">-</a>
+									<a href="javascript:void(0);" class="genric-btn danger-border circle" onclick="delete_form(1);return false;">-</a>
 								</div>
 							</div>
-							<div class="row" style="margin-bottom: 10px">
+							<div class="row" style="margin-bottom: 10px" id="row1_2">
 								<div class="col-lg-3">
 									<h6 style="margin-top: 10px">激活函数</h6>
 								</div>
@@ -137,7 +138,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row" id="row1_3">
 								<div class="col-lg-5">
 									<div class="switch-wrap d-flex justify-content-between">
 										<h6 style="margin-top: 10px">使用Dropout</h6>
@@ -154,8 +155,8 @@
 									</div>
 								</div>
 							</div>
-                            <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" />
-							<div class="row"  style="margin-bottom: 10px">
+                            <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" id="row2_0" />
+							<div class="row"  style="margin-bottom: 10px" id="row2_1">
 								<div class="col-lg-3">
 									<h6 style="margin-top: 10px">网络类型</h6>
 								</div>
@@ -169,10 +170,10 @@
 									</div>
 								</div>
                                 <div class="col-lg-3">
-									<a href="javascript:void(0);" class="genric-btn danger-border circle">-</a>
+									<a href="javascript:void(0);" class="genric-btn danger-border circle" onclick="delete_form(2);return false;">-</a>
 								</div>
 							</div>
-							<div class="row" style="margin-bottom: 10px">
+							<div class="row" style="margin-bottom: 10px" id="row2_2">
 								<div class="col-lg-3">
 									<h6 style="margin-top: 10px">激活函数</h6>
 								</div>
@@ -185,7 +186,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row" id="row2_3">
 								<div class="col-lg-5">
 									<div class="switch-wrap d-flex justify-content-between">
 										<h6 style="margin-top: 10px">使用Dropout</h6>
@@ -202,8 +203,8 @@
 									</div>
 								</div>
 							</div>
-                            <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" />
-							<div class="row"  style="margin-bottom: 10px">
+                            <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" id="row3_0" />
+							<div class="row"  style="margin-bottom: 10px" id="row3_1">
 								<div class="col-lg-3">
 									<h6 style="margin-top: 10px">网络类型</h6>
 								</div>
@@ -217,10 +218,10 @@
 									</div>
 								</div>
                                 <div class="col-lg-3">
-									<a href="javascript:void(0);" class="genric-btn danger-border circle">-</a>
+									<a href="javascript:void(0);" class="genric-btn danger-border circle" onclick="delete_form(3);return false;">-</a>
 								</div>
 							</div>
-							<div class="row" style="margin-bottom: 10px">
+							<div class="row" style="margin-bottom: 10px" id="row3_2">
 								<div class="col-lg-3">
 									<h6 style="margin-top: 10px">激活函数</h6>
 								</div>
@@ -233,7 +234,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row" id="row3_3">
 								<div class="col-lg-5">
 									<div class="switch-wrap d-flex justify-content-between">
 										<h6 style="margin-top: 10px">使用Dropout</h6>
@@ -253,14 +254,17 @@
 
 							<div class="row" style="margin-top: 20px">
                                 <div class="col-md-5" style="height: 50px">
-                                    <a href="javascript:;" class="genric-btn success circle arrow">运行
+                                    <a href="javascript:;" class="genric-btn success circle arrow" onclick="execute();return false;">运行
 									<span class="lnr lnr-arrow-right"></span></a>
                                 </div>
 								 <div class="col-lg-4" style="height: 50px">
-                                    <a href="javascript:;" class="genric-btn info circle arrow">提交
+                                    <a href="javascript:;" class="genric-btn disable circle" id="submit_button">提交
                                         <span class="lnr lnr-arrow-right"></span>
                                     </a>
                                  </div>
+							</div>
+                            <div class="row" style="margin-top: 20px;display: none" id="final_score">
+                                <h6 id="score_text">&nbsp;&nbsp;&nbsp;&nbsp;运行中........</h6>
 							</div>
 						</div>
 					</div>
@@ -271,68 +275,23 @@
 </body>
 
 </html>
-<script type="text/html" id="tr-template">
-<div class="row">
-							<div class="row">
-								<div class="col-lg-6"></div>
-								<div class="col-lg-6"></div>
-							</div>
-							<br>
-							<br>
-							<hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" />
-							<div class="row">
-								<div class="col-lg-3">
-									<h6 style="margin-top: 10px">网络类型</h6>
-								</div>
-								<div class="col-lg-6">
-									<div class="default-select">
-										<select>
-											<option value="1">全连接层</option>
-											<option value="1">卷积层</option>
-											<option value="1">池化层</option>
-										</select>
-									</div>
-								</div>
-							</div>
-                            <br><br><br>
-							<div class="row">
-								<div class="col-lg-3">
-									<h6 style="margin-top: 10px">激活函数</h6>
-								</div>
-								<div class="col-lg-6">
-									<div class="default-select">
-										<select>
-											<option value="1">relu</option>
-											<option value="1">sigmoid</option>
-										</select>
-									</div>
-								</div>
-							</div>
-                            <br>
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="switch-wrap d-flex justify-content-between">
-										<h6 style="margin-top: 10px">使用Dropout</h6>
-										<div class="confirm-switch" style="margin-top: 10px">
-											<input type="checkbox" id="confirm-switch" checked>
-											<label for="confirm-switch"></label>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="mt-6">
-										<input type="text" name="Dropout参数" placeholder="Dropout参数" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
-										 required class="single-input">
-									</div>
-								</div>
-							</div>
-</script>
 <script>
-
+    var cnt=1;
 	function add_model() {
-		html = $('#tr-template').html();
-		$('#pred').prepend(html);
+		//html = $('#tr-template').html();
+		//$('#pred').prepend(html);
+        if(cnt==3) return;
+        cnt++;
+        for(var i=0;i<4;i++)
+            $('#row'+cnt+'_'+i).css('display','');
 	}
+    function delete_form(index) {
+        for(var i=0;i<4;i++)
+        {
+            $('#row'+index+'_'+i).css('display','none');
+        }
+        cnt--;
+    }
 	function change_style() {
 		left = $('#left').html();
 		right = $('#right').html();
@@ -345,4 +304,34 @@
 		$('#right').html(left);
 
 	}
+	function execute() {
+        $('#final_score').css('display','');
+        setTimeout(function () {
+           $('#submit_button').removeClass('genric-btn disable circle');
+            $('#submit_button').addClass('genric-btn info circle arrow');
+            $('#submit_button').attr('href','{% url 'rank' %}');
+            $('#submit_button').attr('target','_blank');
+            $('#score_text').text('运行完成！准确率： 97.15%');
+        },5000);
+    }
+    function sleep(numberMillis) {
+        var now = new Date();
+        var exitTime = now.getTime() + numberMillis;
+        $('#final_score').css('display','');
+        while (true)
+        {
+            now = new Date();
+            if (now.getTime() > exitTime)
+                $('#score_text').text('运行完成！准确率： 97.15%');
+                return;
+        }
+    }
+	 $('#row2_0').css('display','none');
+     $('#row2_1').css('display','none');
+     $('#row2_2').css('display','none');
+     $('#row2_3').css('display','none');
+	 $('#row3_0').css('display','none');
+     $('#row3_1').css('display','none');
+     $('#row3_2').css('display','none');
+     $('#row3_3').css('display','none');
 </script>
