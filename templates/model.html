@@ -42,7 +42,7 @@
 <body class="dup-body">
 	<div class="dup-body-wrap">
 		<!-- Start Header Area -->
-		<header class="default-header">
+		<header class="default-header" >
 			<div class="header-wrap">
 				<div class="header-top d-flex justify-content-between align-items-center">
 					<div class="logo">
@@ -65,8 +65,17 @@
 		<!-- End Header Area -->
 
 		<!-- Start Skill Area -->
-		<section class="section-gap skill-area" style="height: 150%">
+		<section class="section-gap skill-area">
 			<div class="container">
+                <div class="row">
+                    <div class="col-lg-7"></div>
+                    <div class="col-lg-5">
+                        <a href="javascript:void(0);" class="genric-btn info circle">查看代码</a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'mnist' %}" class="genric-btn info circle">简单模式</a>
+                    </div>
+
+                </div>
 				<div class="row justify-content-between">
 					<div class="col-lg-7" id="left">
 						<div class="skill-content">
