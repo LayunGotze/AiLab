@@ -300,20 +300,23 @@
             document.getElementById("model_pic").style.background="url({% static 'img/3layer.png' %})";
     }
 
-	function add_model() {
-		//html = $('#tr-template').html();
-		//$('#pred').prepend(html);
-        if(cnt==3) return;
+	function add_model()
+    {
+        if(cnt==3)
+            return;
         cnt++;
         for(var i=0;i<4;i++)
             $('#row'+cnt+'_'+i).css('display','');
+        draw_model();
 	}
-    function delete_form(index) {
+    function delete_form(index)
+    {
         for(var i=0;i<4;i++)
         {
             $('#row'+index+'_'+i).css('display','none');
         }
         cnt--;
+        draw_model();
     }
 	function change_style() {
 		left = $('#left').html();
@@ -327,9 +330,11 @@
 		$('#right').html(left);
 
 	}
-	function execute() {
+	function execute()
+    {
         $('#final_score').css('display','');
-        setTimeout(function () {
+        setTimeout(function ()
+        {
            $('#submit_button').removeClass('genric-btn disable circle');
             $('#submit_button').addClass('genric-btn info circle arrow');
             $('#submit_button').attr('href','{% url 'rank' %}');
@@ -338,7 +343,8 @@
             $('#accuracy_loss').css('display','');
         },5000);
     }
-    function sleep(numberMillis) {
+    function sleep(numberMillis)
+    {
         var now = new Date();
         var exitTime = now.getTime() + numberMillis;
         $('#final_score').css('display','');
