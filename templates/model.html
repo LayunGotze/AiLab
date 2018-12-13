@@ -46,9 +46,6 @@
 			<div class="header-wrap">
 				<div class="header-top d-flex justify-content-between align-items-center">
 					<div class="logo">
-						<a href="{% url 'question' %}">
-							<img src="../static/img/logo.png" alt="">
-						</a>
 						<a href="javascript:void(0);" class="genric-btn success-border circle" onclick="change_style();return false;">反向模式</a>
 					</div>
 					<div class="main-menubar d-flex align-items-center">
@@ -73,9 +70,12 @@
                         <a href="javascript:void(0);" class="genric-btn info circle">查看代码</a>
                         &nbsp;&nbsp;&nbsp;
                         <a href="{% url 'mnist' %}" class="genric-btn info circle">简单模式</a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="javascript:;" class="genric-btn info circle" onclick="draw_model();return false;">生成效果图</a>
                     </div>
 
                 </div>
+                <br>
 				<div class="row justify-content-between">
 					<div class="col-lg-7" id="left">
 						<div class="skill-content">
@@ -84,7 +84,7 @@
 
 							<br>
 							<br>
-							<div class="row">
+							<div class="row" id="accuracy_loss" style="display: none">
 								<div class="col-lg-6">
 									<h3>Accuracy</h3>
 									<div class="single-gallery-image" style="background: url({% static 'img/accuracy.png' %}); height: 300px"></div>
@@ -264,12 +264,6 @@
 								</div>
 							</div>
 
-                            <div class="row" style="margin-top: 20px">
-                                <div class="col-md-5" style="height: 50px">
-                                    <a href="javascript:;" class="genric-btn info circle" onclick="draw_model();return false;">生成效果图
-									<span class="lnr lnr-arrow-right"></span></a>
-                                </div>
-							</div>
 							<div class="row" style="margin-top: 20px">
                                 <div class="col-md-5" style="height: 50px">
                                     <a href="javascript:;" class="genric-btn success circle arrow" onclick="execute();return false;">运行
@@ -341,6 +335,7 @@
             $('#submit_button').attr('href','{% url 'rank' %}');
             $('#submit_button').attr('target','_blank');
             $('#score_text').text('运行完成！准确率： 97.15%');
+            $('#accuracy_loss').css('display','');
         },5000);
     }
     function sleep(numberMillis) {
