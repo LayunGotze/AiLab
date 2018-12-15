@@ -156,65 +156,79 @@
 {#		</section>#}
 		<!-- End Achivement Area -->
         <div class="white-bg">
-            <div class="container">
+{#            <div class="container">#}
                 <div class="section-top-border">
                     <div class="row">
-                        <div class="section-top-border" >
-					        <h3 class="mb-30" style="font-size: 35px;text-align: center">题目选择</h3>
-					        <div class="row" style="float:left;width:45%;border:1px solid #F00">
-                                    <div class="col-md-3" style="display: flex;align-items: center;justify-content: center;padding: 0">
-							        <a href="{% url 'mnist' %}"><img src="{% static 'img/d.jpg' %}" width="100%" height="auto" alt="实验一图片" class="img-fluid"></a>
+                        <div class="section-top-border"  style="margin-left: 8%;margin-right: 8%">
+					        <h3 class="mb-30" style="font-size: 35px;text-align: center;margin-top: -2%">题目选择</h3>
+					        <div class="row" style="float:left;width:48%;border:1px solid #000;">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;background: black">
+							        <a href="{% url 'mnist' %}"><img src="{% static 'img/决策树.jpg' %}" width="100%" height="100%" alt="实验一图片" class="img-fluid"></a>
 						        </div>
-						        <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
-							        <p> 实验一说明实验一说明实验一说明实验一说明实验一说明实验一说明实验一说明实验一说明实验一说明实验一说明实验一说明实验一说明</p>
-						        </div>
+                                <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
+                                    <div style="padding-top: 5px;margin-bottom: -5px">
+							        <p style="color: black;font-size: 15px"> <b style="color: black;font-size: 25px;">决策树实验</b>实验说明：根据现实生活中的原型自己创建一个简单的决策树；要求用这个决策树能解决实际分类决策问题</p>
+						            </div>
+                                </div>
 					        </div>
-                            <div class="row" style="float:left;position: relative;margin-left: 12%;margin-bottom: 15px;width:45%;border:1px solid #000">
-                                <div class="col-md-3">
-                                    <img src="img/d.jpg" alt="实验二图片" class="img-fluid">
+
+                            <div class="row" style="float:left;position: relative;margin-left: 4%;margin-bottom: 20px;width:48%;border:1px solid #000">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0">
+                                    <a href="{% url 'mnist' %}"><img src="{% static 'img/人脸识别.jpg' %}" width="100%" height="100%"  alt="实验二图片" class="img-fluid"></a>
                                 </div>
-                                <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
-                                    <p> 实验二说明实验二说明实验二说明实验二说明实验二说明实验二说明实验二说明实验二说明实验二说明实验二说明实验二说明实验二说明</p>
+                                <div class="col-md-9 mt-sm-20" style="background: #00b3ee;">
+                                    <div style="padding-top: 5px;margin-bottom: -5px">
+                                        <p style="color: black;font-size: 15px"><b style="color: black;font-size: 25px;">人脸识别实验</b> 实验说明：在人脸库中有15个人，每人有11幅图像。要求选定每个人的若干图像组成样本库，由它得到特征库，再任取图像库的一张图片，识别他的身份</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="row" style="float:left;width:45%;border:1px solid #F00">
-                                <div class="col-md-3">
-                                    <img src="img/d.jpg" alt="实验三图片" class="img-fluid">
+					        <div class="row" style="float:left;width:48%;border:1px solid #000;">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;background: black">
+                                    <a  href="{% url 'mnist' %}"><img src="{% static 'img/手写识别.jpg' %}" width="100%" height="100%" alt="实验三图片" class="img-fluid"></a>
                                 </div>
                                 <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
-                                    <p> 实验三说明实验三说明实验三说明实验三说明实验三说明实验三说明实验三说明实验三说明实验三说明实验三说明实验三说明实验三说明</p>
-                                </div>
-                            </div>
-                            <div class="row" style="float:left;position: relative;margin-left: 12%;margin-bottom: 15px;width:45%;border:1px solid #000">
-                                <div class="col-md-3">
-                                    <img src="img/d.jpg" alt="实验四图片" class="img-fluid">
-                                </div>
-                                <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
-                                    <p> 实验四说明实验四说明实验四说明实验四说明实验四说明实验四说明实验四说明实验四说明实验四说明实验四说明实验四说明实验四说明</p>
+                                    <div style="padding-top: 5px;margin-bottom: -5px">
+                                        <p style="color: black;font-size: 15px"> <b style="color: black;font-size: 25px;">手写识别实验</b>实验说明：理解BP神经网络的结构和原理，掌握反向传播学习算法对神经元的训练过程。构建BP网络识别实例，实现对手写数字的识别</p>
+                                    </div>
                                 </div>
                             </div>
 
-                             <div class="row" style="float:left;width:45%;border:1px solid #F00">
-                                <div class="col-md-3">
-                                    <img src="img/d.jpg" alt="实验五图片" class="img-fluid">
+                            <div class="row" style="float:left;position: relative;margin-left: 4%;margin-bottom: 20px;width:48%;border:1px solid #000">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0">
+                                    <a href="{% url 'mnist' %}"><img src="{% static 'img/房价预测.jpg' %}" width="100%" height="100%"  alt="实验二图片" class="img-fluid"></a>
                                 </div>
-                                <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
-                                    <p> 实验五说明实验五说明实验五说明实验五说明实验五说明实验五说明实验五说明实验五说明实验五说明实验五说明实验五说明实验五说明</p>
+                                <div class="col-md-9 mt-sm-20" style="background: #00b3ee;">
+                                    <div style="padding-top: 5px;margin-bottom: -5px">
+                                        <p style="color: black;font-size: 15px"><b style="color: black;font-size: 25px;">房价预测实验</b> 实验说明：实验数据集中共包含1460条房屋信息，包括房屋售价、区域分类、公共设施类型等，其中一些数据信息为空值，需要进行缺失值处理。请根据以成交的房屋信息，预测其余房屋的价格</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row" style="float:left;position: relative;margin-left: 12%;margin-bottom: 15px;width:45%;border:1px solid #000">
-                                <div class="col-md-3">
-                                    <img src="img/d.jpg" alt="实验六图片" class="img-fluid">
+
+					        <div class="row" style="float:left;width:48%;border:1px solid #000;">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;background: black">
+                                    <a  href="{% url 'mnist' %}"><img src="{% static 'img/情感分析.jpg' %}" width="100%" height="100%" alt="实验三图片" class="img-fluid"></a>
                                 </div>
                                 <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
-                                    <p> 实验六说明实验六说明实验六说明实验六说明实验六说明实验六说明实验六说明实验六说明实验六说明实验六说明实验六说明实验六说明</p>
+                                    <div style="padding-top: 5px;margin-bottom: -5px">
+                                        <p style="color: black;font-size: 15px"> <b style="color: black;font-size: 25px;">情感分析实验</b>实验说明：现有75000条电影评论，类别分别为正面评论和负面评论。现要求对这些影评提取特征，获得一个情感分类器，并测试5000条评论，验证分类器性能</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="float:left;position: relative;margin-left: 4%;margin-bottom: 20px;width:48%;border:1px solid #000">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;background: black">
+                                    <a  href="{% url 'mnist' %}"><img src="{% static 'img/大数据测试.jpg' %}" width="100%" height="100%" alt="实验三图片" class="img-fluid"></a>
+                                </div>
+                                <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
+                                    <div style="padding-top: 5px;margin-bottom: -5px">
+                                        <p style="color: black;font-size: 15px"> <b style="color: black;font-size: 25px;">大数据测试实验</b>实验说明：本次作业为垃圾邮件过滤，要求学生再Spark环境下，完成数据集的垃圾邮件标注</p>
+                                    </div>
                                 </div>
                             </div>
 				        </div>
                     </div>
                 </div>
-            </div>
+{#            </div>#}
         </div>
 
 		<!-- Strat Footer Area -->

@@ -43,7 +43,7 @@
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="header-wrap">
-					{% include 'head.html' %}
+{#					{% include 'head.html' %}#}
 				</div>
 			</header>
 		<!-- End Header Area -->
@@ -76,7 +76,7 @@
                             <div style="text-align: left"><b style="color: black;">password</b></div>
                             <div class="input-group-icon mt-10" style="margin-bottom: 20px">
 								<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-								<input type="text" name="password" placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'password'" required class="single-input">
+								<input type="password" name="password" placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'password'" required class="single-input">
 							</div>
                             <div style="text-align: right"><a href="{% url 'login' %}"><i style="color: black">忘记密码?</i></a></div>
                             <a href="{% url 'question' %}" class="genric-btn info-border circle arrow" style="margin-bottom: 20px">Login<span class="lnr lnr-arrow-right"></span></a>
