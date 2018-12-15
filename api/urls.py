@@ -3,5 +3,6 @@ from api.views import *
 from django.conf.urls import include, url
 
 urlpatterns=[
-    url('test',test)
+    url('test',test),
+    url('mnist',mnist)
 ]
