@@ -16,347 +16,371 @@
 <html lang="zxx" class="no-js">
 
 <head>
-	<!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Favicon-->
-	{% load staticfiles %}
-	<link rel="shortcut icon" href="{% static 'img/fav.png'%}">
-	<!-- Author Meta -->
-	<meta name="author" content="CodePixar">
-	<!-- Meta Description -->
-	<meta name="description" content="">
-	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
-	<!-- meta character set -->
-	<meta charset="UTF-8">
-	<!-- Site Title -->
-	<title>模型调试</title>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    {% load staticfiles %}
+    <!-- Author Meta -->
+    <meta name="author" content="CodePixar">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>模型调试</title>
 
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500" rel="stylesheet">
-	<!--
-		CSS
-		============================================= -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500" rel="stylesheet">
+    <!--
+        CSS
+        ============================================= -->
 
 </head>
 
 <body class="dup-body">
-	<div class="dup-body-wrap">
-		<!-- Start Header Area -->
-		<header class="default-header" >
-			<div class="header-wrap">
-				<div class="header-top d-flex justify-content-between align-items-center">
-					<div class="logo">
-						<a href="javascript:void(0);" class="genric-btn success-border circle" onclick="change_style();return false;">反向模式</a>
-					</div>
-					<div class="main-menubar d-flex align-items-center">
-						<nav>
-							<a href="{% url 'question' %}">主页</a>
-							<a href="{% url 'question' %}">选题</a>
-							<a href="{% url 'rank' %}">排名</a>
-						</nav>
-						<div><a href="{% url 'login' %}">退出</a></div>
-					</div>
-				</div>
-			</div>
-		</header>
-		<!-- End Header Area -->
-
-		<!-- Start Skill Area -->
-		<section class="section-gap skill-area">
-			<div class="container">
-                <div class="row">
-                    <div class="col-lg-7"></div>
-                    <div class="col-lg-5">
-                        <a href="javascript:void(0);" class="genric-btn info circle">查看代码</a>
-                        &nbsp;&nbsp;&nbsp;
-                        <a href="{% url 'mnist' %}" class="genric-btn info circle">简单模式</a>
-                        &nbsp;&nbsp;&nbsp;
-                        <a href="javascript:;" class="genric-btn info circle" onclick="draw_model();return false;">生成效果图</a>
-                    </div>
-
+<div class="dup-body-wrap">
+    <!-- Start Header Area -->
+    <header class="default-header">
+        <div class="header-wrap">
+            <div class="header-top d-flex justify-content-between align-items-center">
+                <div class="logo">
+                    <a href="javascript:void(0);" class="genric-btn success-border circle"
+                       onclick="change_style();return false;">反向模式</a>
                 </div>
-                <br>
-				<div class="row justify-content-between">
-					<div class="col-lg-7" id="left">
-						<div class="skill-content">
-							<h2>模型可视化效果图</h2>
-							<div id="model_pic" class="single-gallery-image" style="background: url({% static 'img/1layer.png' %})"></div>
-
-							<br>
-							<br>
-							<div class="row" id="accuracy_loss" style="display: none">
-								<div class="col-lg-6">
-									<h3>Accuracy</h3>
-									<div class="single-gallery-image" style="background: url({% static 'img/accuracy.png' %}); height: 300px"></div>
-									</a>
-								</div>
-
-								<div class="col-lg-6">
-									<h3>Loss</h3>
-									<div class="single-gallery-image" style="background: url({% static 'img/loss.png' %}); height: 300px"></div>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-5" id="right">
-						<div class="total-progress-bar" id="model_list">
-							<div class="row">
-								<div class="col-lg-8">
-									<h2>网络参数</h2>
-								</div>
-								<div class="col-lg-3" style="margin-left: 5px">
-									<a href="javascript:void(0);" class="genric-btn success-border circle" onclick="add_model();return false;">+</a>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-6"></div>
-								<div class="col-lg-6"></div>
-							</div>
-							<br>
-							<br>
-							<hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" id="row1_0" />
-							<div class="row"  style="margin-bottom: 10px" id="row1_1">
-								<div class="col-lg-3">
-									<h6 style="margin-top: 10px">网络类型</h6>
-								</div>
-								<div class="col-lg-5" style="margin-left: 8px">
-									<div class="default-select">
-										<select>
-											<option value="1">全连接层</option>
-											<option value="1">卷积层</option>
-											<option value="1">池化层</option>
-										</select>
-									</div>
-								</div>
-                                <div class="col-lg-3">
-									<a href="javascript:void(0);" class="genric-btn danger-border circle" onclick="delete_form(1);return false;">-</a>
-								</div>
-							</div>
-							<div class="row" style="margin-bottom: 10px" id="row1_2">
-								<div class="col-lg-3">
-									<h6 style="margin-top: 10px">激活函数</h6>
-								</div>
-								<div class="col-lg-6" style="margin-left: 8px">
-									<div class="default-select">
-										<select>
-											<option value="1">relu</option>
-											<option value="1">sigmoid</option>
-											<option value="1">softmax</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="row" id="row1_3">
-								<div class="col-lg-5">
-									<div class="switch-wrap d-flex justify-content-between">
-										<h6 style="margin-top: 10px">使用Dropout</h6>
-										<div class="confirm-switch" style="margin-top: 10px;margin-left: 20px">
-											<input type="checkbox" id="confirm-switch-0">
-											<label for="confirm-switch-0"></label>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6" style="margin-left: 20px">
-									<div class="mt-6">
-										<input type="text" name="Dropout参数" placeholder="Dropout参数" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
-										 required class="single-input">
-									</div>
-								</div>
-							</div>
-                            <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" id="row2_0" />
-							<div class="row"  style="margin-bottom: 10px" id="row2_1">
-								<div class="col-lg-3">
-									<h6 style="margin-top: 10px">网络类型</h6>
-								</div>
-								<div class="col-lg-5" style="margin-left: 8px">
-									<div class="default-select">
-										<select>
-											<option value="1">全连接层</option>
-											<option value="1">卷积层</option>
-											<option value="1">池化层</option>
-										</select>
-									</div>
-								</div>
-                                <div class="col-lg-3">
-									<a href="javascript:void(0);" class="genric-btn danger-border circle" onclick="delete_form(2);return false;">-</a>
-								</div>
-							</div>
-							<div class="row" style="margin-bottom: 10px" id="row2_2">
-								<div class="col-lg-3">
-									<h6 style="margin-top: 10px">激活函数</h6>
-								</div>
-								<div class="col-lg-6" style="margin-left: 8px">
-									<div class="default-select">
-										<select>
-											<option value="1">relu</option>
-											<option value="1">sigmoid</option>
-                                            <option value="1">softmax</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="row" id="row2_3">
-								<div class="col-lg-5">
-									<div class="switch-wrap d-flex justify-content-between">
-										<h6 style="margin-top: 10px">使用Dropout</h6>
-										<div class="confirm-switch" style="margin-top: 10px;margin-left: 20px">
-											<input type="checkbox" id="confirm-switch-1">
-											<label for="confirm-switch-1"></label>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6" style="margin-left: 20px">
-									<div class="mt-6">
-										<input type="text" name="Dropout参数" placeholder="Dropout参数" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
-										 required class="single-input">
-									</div>
-								</div>
-							</div>
-                            <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" id="row3_0" />
-							<div class="row"  style="margin-bottom: 10px" id="row3_1">
-								<div class="col-lg-3">
-									<h6 style="margin-top: 10px">网络类型</h6>
-								</div>
-								<div class="col-lg-5" style="margin-left: 8px">
-									<div class="default-select">
-										<select>
-											<option value="1">全连接层</option>
-											<option value="1">卷积层</option>
-											<option value="1">池化层</option>
-										</select>
-									</div>
-								</div>
-                                <div class="col-lg-3">
-									<a href="javascript:void(0);" class="genric-btn danger-border circle" onclick="delete_form(3);return false;">-</a>
-								</div>
-							</div>
-							<div class="row" style="margin-bottom: 10px" id="row3_2">
-								<div class="col-lg-3">
-									<h6 style="margin-top: 10px">激活函数</h6>
-								</div>
-								<div class="col-lg-6" style="margin-left: 8px">
-									<div class="default-select">
-										<select>
-											<option value="1">relu</option>
-											<option value="1">sigmoid</option>
-                                            <option value="1">softmax</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="row" id="row3_3">
-								<div class="col-lg-5">
-									<div class="switch-wrap d-flex justify-content-between">
-										<h6 style="margin-top: 10px">使用Dropout</h6>
-										<div class="confirm-switch" style="margin-top: 10px;margin-left: 20px">
-											<input type="checkbox" id="confirm-switch-2">
-											<label for="confirm-switch-2"></label>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6" style="margin-left: 20px">
-									<div class="mt-6">
-										<input type="text" name="Dropout参数" placeholder="Dropout参数" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
-										 required class="single-input">
-									</div>
-								</div>
-							</div>
-
-							<div class="row" style="margin-top: 20px">
-                                <div class="col-md-5" style="height: 50px">
-                                    <a href="javascript:;" class="genric-btn success circle arrow" onclick="execute();return false;">运行
-									<span class="lnr lnr-arrow-right"></span></a>
-                                </div>
-								 <div class="col-lg-4" style="height: 50px">
-                                    <a href="javascript:;" class="genric-btn disable circle" id="submit_button">提交
-                                        <span class="lnr lnr-arrow-right"></span>
-                                    </a>
-                                 </div>
-							</div>
-                            <div class="row" style="margin-top: 20px;display: none" id="final_score">
-                                <h6 id="score_text">&nbsp;&nbsp;&nbsp;&nbsp;运行中........</h6>
-							</div>
-						</div>
-					</div>
-				</div>
+                <div class="main-menubar d-flex align-items-center">
+                    <nav>
+                        <a href="{% url 'question' %}">主页</a>
+                        <a href="{% url 'question' %}">选题</a>
+                        <a href="{% url 'rank' %}">排名</a>
+                    </nav>
+                    <div><a href="{% url 'login' %}">退出</a></div>
+                </div>
             </div>
-		</section>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-		 crossorigin="anonymous"></script>
-    </div>
+        </div>
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Skill Area -->
+    <section class="section-gap skill-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7"></div>
+                <div class="col-lg-5">
+                    <a href="javascript:void(0);" class="genric-btn info circle">查看代码</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'mnist' %}" class="genric-btn info circle">简单模式</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="javascript:" class="genric-btn info circle" onclick="draw_model();return false;">生成效果图</a>
+                </div>
+
+            </div>
+            <br>
+            <div class="row justify-content-between">
+                <div class="col-lg-7" id="left">
+                    <div class="skill-content">
+                        <h2>模型可视化效果图</h2>
+                        <div id="model_pic" class="single-gallery-image"
+                             style="background: url({% static 'img/1layer.png' %})"></div>
+
+                        <br>
+                        <br>
+                        <div class="row" id="accuracy_loss" style="display: none">
+                            <div class="col-lg-6">
+                                <h3>Accuracy</h3>
+                                <div class="single-gallery-image"
+                                     style="background: url({% static 'img/accuracy.png' %}); height: 300px"></div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3>Loss</h3>
+                                <div class="single-gallery-image"
+                                     style="background: url({% static 'img/loss.png' %}); height: 300px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5" id="right">
+                    <div class="total-progress-bar" id="model_list">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h2>网络参数</h2>
+                            </div>
+                            <div class="col-lg-3" style="margin-left: 5px">
+                                <a href="javascript:void(0);" class="genric-btn success-border circle"
+                                   onclick="add_model();return false;">+</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6"></div>
+                            <div class="col-lg-6"></div>
+                        </div>
+                        <br>
+                        <br>
+                        <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" id="row1_0"/>
+                        <div class="row" style="margin-bottom: 10px" id="row1_1">
+                            <div class="col-lg-3">
+                                <h6 style="margin-top: 10px">网络类型</h6>
+                            </div>
+                            <div class="col-lg-5" style="margin-left: 8px">
+                                <div class="default-select">
+                                    <label>
+                                        <select>
+                                            <option value="1">全连接层</option>
+                                            <option value="1">卷积层</option>
+                                            <option value="1">池化层</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <a href="javascript:void(0);" class="genric-btn danger-border circle"
+                                   onclick="delete_form(1);return false;">-</a>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px" id="row1_2">
+                            <div class="col-lg-3">
+                                <h6 style="margin-top: 10px">激活函数</h6>
+                            </div>
+                            <div class="col-lg-6" style="margin-left: 8px">
+                                <div class="default-select">
+                                    <label>
+                                        <select>
+                                            <option value="1">relu</option>
+                                            <option value="1">sigmoid</option>
+                                            <option value="1">softmax</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="row1_3">
+                            <div class="col-lg-5">
+                                <div class="switch-wrap d-flex justify-content-between">
+                                    <h6 style="margin-top: 10px">使用Dropout</h6>
+                                    <div class="confirm-switch" style="margin-top: 10px;margin-left: 20px">
+                                        <input type="checkbox" id="confirm-switch-0">
+                                        <label for="confirm-switch-0"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="margin-left: 20px">
+                                <div class="mt-6">
+                                    <input type="text" name="Dropout参数" placeholder="Dropout参数"
+                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
+                                           required class="single-input">
+                                </div>
+                            </div>
+                        </div>
+                        <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" id="row2_0"/>
+                        <div class="row" style="margin-bottom: 10px" id="row2_1">
+                            <div class="col-lg-3">
+                                <h6 style="margin-top: 10px">网络类型</h6>
+                            </div>
+                            <div class="col-lg-5" style="margin-left: 8px">
+                                <div class="default-select">
+                                    <label>
+                                        <select>
+                                            <option value="1">全连接层</option>
+                                            <option value="1">卷积层</option>
+                                            <option value="1">池化层</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <a href="javascript:void(0);" class="genric-btn danger-border circle"
+                                   onclick="delete_form(2);return false;">-</a>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px" id="row2_2">
+                            <div class="col-lg-3">
+                                <h6 style="margin-top: 10px">激活函数</h6>
+                            </div>
+                            <div class="col-lg-6" style="margin-left: 8px">
+                                <div class="default-select">
+                                    <label>
+                                        <select>
+                                            <option value="1">relu</option>
+                                            <option value="1">sigmoid</option>
+                                            <option value="1">softmax</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="row2_3">
+                            <div class="col-lg-5">
+                                <div class="switch-wrap d-flex justify-content-between">
+                                    <h6 style="margin-top: 10px">使用Dropout</h6>
+                                    <div class="confirm-switch" style="margin-top: 10px;margin-left: 20px">
+                                        <input type="checkbox" id="confirm-switch-1">
+                                        <label for="confirm-switch-1"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="margin-left: 20px">
+                                <div class="mt-6">
+                                    <input type="text" name="Dropout参数" placeholder="Dropout参数"
+                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
+                                           required class="single-input">
+                                </div>
+                            </div>
+                        </div>
+                        <hr style=" height:2px;border:none;border-top:2px solid #40a9ff;" id="row3_0"/>
+                        <div class="row" style="margin-bottom: 10px" id="row3_1">
+                            <div class="col-lg-3">
+                                <h6 style="margin-top: 10px">网络类型</h6>
+                            </div>
+                            <div class="col-lg-5" style="margin-left: 8px">
+                                <div class="default-select">
+                                    <label>
+                                        <select>
+                                            <option value="1">全连接层</option>
+                                            <option value="1">卷积层</option>
+                                            <option value="1">池化层</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <a href="javascript:void(0);" class="genric-btn danger-border circle"
+                                   onclick="delete_form(3);return false;">-</a>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px" id="row3_2">
+                            <div class="col-lg-3">
+                                <h6 style="margin-top: 10px">激活函数</h6>
+                            </div>
+                            <div class="col-lg-6" style="margin-left: 8px">
+                                <div class="default-select">
+                                    <label>
+                                        <select>
+                                            <option value="1">relu</option>
+                                            <option value="1">sigmoid</option>
+                                            <option value="1">softmax</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="row3_3">
+                            <div class="col-lg-5">
+                                <div class="switch-wrap d-flex justify-content-between">
+                                    <h6 style="margin-top: 10px">使用Dropout</h6>
+                                    <div class="confirm-switch" style="margin-top: 10px;margin-left: 20px">
+                                        <input type="checkbox" id="confirm-switch-2">
+                                        <label for="confirm-switch-2"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="margin-left: 20px">
+                                <div class="mt-6">
+                                    <input type="text" name="Dropout参数" placeholder="Dropout参数"
+                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dropout参数'"
+                                           required class="single-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-md-5" style="height: 50px">
+                                <a href="javascript:;" class="genric-btn success circle arrow"
+                                   onclick="execute();draw_model();return false;">运行
+                                    <span class="lnr lnr-arrow-right"></span></a>
+                            </div>
+                            <div class="col-lg-4" style="height: 50px">
+                                <a href="javascript:;" class="genric-btn disable circle" id="submit_button">提交
+                                    <span class="lnr lnr-arrow-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;display: none" id="final_score">
+                            <h6 id="score_text">&nbsp;&nbsp;&nbsp;&nbsp;运行中........</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 </body>
 
 </html>
+
 <script>
-    var cnt=1;
+    var cnt = 1;
+
     function draw_model() {
-        if(cnt==1)
-            document.getElementById("model_pic").style.background="url({% static 'img/1layer.png' %})";
-        if(cnt==2)
-            document.getElementById("model_pic").style.background="url({% static 'img/2layer.png' %})";
-        if(cnt==3)
-            document.getElementById("model_pic").style.background="url({% static 'img/3layer.png' %})";
+        if (cnt === 1)
+            document.getElementById("model_pic").style.background = "url({% static 'img/1layer.png' %})";
+        if (cnt === 2)
+            document.getElementById("model_pic").style.background = "url({% static 'img/2layer.png' %})";
+        if (cnt === 3)
+            document.getElementById("model_pic").style.background = "url({% static 'img/3layer.png' %})";
     }
 
-	function add_model() {
-		//html = $('#tr-template').html();
-		//$('#pred').prepend(html);
-        if(cnt==3)
+    function add_model() {
+        //html = $('#tr-template').html();
+        //$('#pred').prepend(html);
+        if (cnt === 3)
             return;
         cnt++;
-        for(var i=0;i<4;i++)
-            $('#row'+cnt+'_'+i).css('display','');
-	}
+        for (var i = 0; i < 4; i++)
+            $('#row' + cnt + '_' + i).css('display', '');
+    }
+
     function delete_form(index) {
-        for(var i=0;i<4;i++)
-        {
-            $('#row'+index+'_'+i).css('display','none');
+        for (var i = 0; i < 4; i++) {
+            $('#row' + index + '_' + i).css('display', 'none');
         }
         cnt--;
     }
-	function change_style() {
-		left = $('#left').html();
-		right = $('#right').html();
-		left_style=$('#left').attr('class');
-		right_style=$('#right').attr('class');
-		//alert(right_style);
-		$('#left').attr('class',right_style);
-		$('#right').attr('class',left_style);
-		$('#left').html(right);
-		$('#right').html(left);
 
-	}
-	function execute() {
-        $('#final_score').css('display','');
-        setTimeout(function () {
-           $('#submit_button').removeClass('genric-btn disable circle');
-            $('#submit_button').addClass('genric-btn info circle arrow');
-            $('#submit_button').attr('href','{% url 'rank' %}');
-            $('#submit_button').attr('target','_blank');
-            $('#score_text').text('运行完成！准确率： 97.15%');
-            $('#accuracy_loss').css('display','');
-        },5000);
+    function change_style() {
+        left = $('#left').html();
+        right = $('#right').html();
+        left_style = $('#left').attr('class');
+        right_style = $('#right').attr('class');
+        //alert(right_style);
+        $('#left').attr('class', right_style);
+        $('#right').attr('class', left_style);
+        $('#left').html(right);
+        $('#right').html(left);
+
     }
+
+    function execute() {
+        $('#final_score').css('display', '');
+        setTimeout(function () {
+            $('#submit_button').removeClass('genric-btn disable circle');
+            $('#submit_button').addClass('genric-btn info circle arrow');
+            $('#submit_button').attr('href', '{% url 'rank' %}');
+            $('#submit_button').attr('target', '_blank');
+            $('#score_text').text('运行完成！准确率： 97.15%');
+            $('#accuracy_loss').css('display', '');
+        }, 5000);
+    }
+
     function sleep(numberMillis) {
         var now = new Date();
         var exitTime = now.getTime() + numberMillis;
-        $('#final_score').css('display','');
-        while (true)
-        {
+        $('#final_score').css('display', '');
+        while (true) {
             now = new Date();
             if (now.getTime() > exitTime)
                 $('#score_text').text('运行完成！准确率： 97.15%');
-                return;
+            return;
         }
     }
-	 $('#row2_0').css('display','none');
-     $('#row2_1').css('display','none');
-     $('#row2_2').css('display','none');
-     $('#row2_3').css('display','none');
-	 $('#row3_0').css('display','none');
-     $('#row3_1').css('display','none');
-     $('#row3_2').css('display','none');
-     $('#row3_3').css('display','none');
+
+    $('#row2_0').css('display', 'none');
+    $('#row2_1').css('display', 'none');
+    $('#row2_2').css('display', 'none');
+    $('#row2_3').css('display', 'none');
+    $('#row3_0').css('display', 'none');
+    $('#row3_1').css('display', 'none');
+    $('#row3_2').css('display', 'none');
+    $('#row3_3').css('display', 'none');
 </script>
