@@ -54,11 +54,11 @@
 {#			<div class="overlay overlay-bg"></div>#}
 			<div class="container">
 				<div class="row fullscreen align-items-center justify-content-between">
-                    <table width="500" style="margin-top: -30px" border="0">
+                    <table width="500" style="margin-top: -60px" border="0">
                         <tr>
                             <td style="width:500px;vertical-align:top;">
 
-                                <div style="margin-left:100px;width:500px;height: 300px" >
+                                <div style="margin-left:100px;width:500px;height: 300px;margin-left: 200px" >
                                     <div class="row">
                                         <canvas id="myCanvas" width="350" height="350" style="border:1px solid #d3d3d3;">
                     {#                    <canvas class="drawing-board-canvas" width="280" height="280" style="width: 280px; height: 280px;"></canvas>#}
@@ -66,7 +66,6 @@
                                     </div>
                                     <table>
                                         <tr style="height:10px">
-
                                         </tr>
                                         <tr>
                                             <td>
@@ -85,13 +84,12 @@
                                     </table>
                                 </div>
                             </td>
-
                         </tr>
                     </table>
 
 					<div class="col-lg-5 col-md-5 col-sm-4" style="margin-right: 100px">
                         <a href="{% url 'model' %}" class="genric-btn info circle">开发者模式</a>
-                        <h3 id="mnist_result">识别结果:3</h3>
+                        <h3 id="mnist_result">识别结果:</h3>
 					</div>
 {#                    <div class="col-lg-5 col-md-5 col-sm-4"></div>#}
 
@@ -107,22 +105,20 @@
 
     var paint = false;
     ctx.strokeStyle="#000000";
-    ctx.lineWidth = 10;
-    ctx.borderRadius = 200;
-    var y_adjust = 220;
+    ctx.lineWidth = 40;
+    ctx.borderRadius = 2000;
+    ctx.fillStyle="white";
+    ctx.fillRect(0, 0, c.width, c.height);
+    var y_adjust = 200;
     var x_adjust = 100;
     var current_x = 0;
     var current_y = 0;
-    var x_list = [];
-    var y_list = [];
 
     c.onmousedown = function(e){
         paint = !paint;
         current_x = e.pageX-this.offsetLeft-x_adjust;
         current_y = e.pageY-this.offsetTop-y_adjust;
         ctx.moveTo(current_x,current_y);
-        x_list.push(current_x);
-        y_list.push(current_y);
         console.log(current_x, current_y);
     };
 
@@ -131,8 +127,6 @@
             current_x = e.pageX-this.offsetLeft-x_adjust;
             current_y = e.pageY-this.offsetTop-y_adjust;
             ctx.lineTo(current_x,current_y);
-            x_list.push(current_x);
-            y_list.push(current_y);
             ctx.stroke();
         }
     };
@@ -177,18 +171,20 @@
 
     function clearCanvas() {
         ctx.beginPath();
-        x_list = [];
-        y_list = [];
         ctx.clearRect(0, 0, c.width, c.height);
+        ctx.fillStyle="white";
+        ctx.fillRect(0, 0, c.width, c.height);
     }
+
     function predict() {
+        console.log(ctx.getImageData(0, 0, c.width, c.height));
+        var image = new Image();
+        image.src = c.toDataURL("image/png");
+        {#console.log(image.src);#}
 
-        alert("1111");
-        alert(x_list);
-        alert(y_list);
-
-        $.get('/api/mnist',{"mnist_x": x_list, "mnist_y": y_list},function (data) {
+        $.post('/api/mnist',{"image": image.src},function (data) {
             $('#mnist_result').text('识别结果:'+data["res"]);
         });
+
     }
 </script>
