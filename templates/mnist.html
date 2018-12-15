@@ -152,12 +152,10 @@
 
     function readFile() {
         var file = this.files[0];
-        {#print(file);#}
         if (!/image\/\w+/.test(file.type)) {
             alert("Error type of file: Must be image.");
             return false;
         }
-        {#alert(file);#}
         var reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function (e) {
@@ -174,8 +172,6 @@
             {
                 cvs_ctx.drawImage(img,0,0,cvs.width,cvs.height);
                 strDataURI = cvs.toDataURL();
-				{#alert("hahahah")#}
-                {#alert(strDataURI);
             }
     }
 
