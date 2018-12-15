@@ -358,7 +358,7 @@
             $('#submit_button').addClass('genric-btn info circle arrow');
             $('#submit_button').attr('href', '{% url 'rank' %}');
             $('#submit_button').attr('target', '_blank');
-            $('#score_text').text('运行完成！准确率： 97.15%');
+            $('#score_text').text('运行完成！准确率： 91.15%');
             $('#accuracy_loss').css('display', '');
         }, 5000);
     }
@@ -370,7 +370,7 @@
         while (true) {
             now = new Date();
             if (now.getTime() > exitTime)
-                $('#score_text').text('运行完成！准确率： 97.15%');
+                $('#score_text').text('运行完成！准确率： 91.15%');
             return;
         }
     }
