@@ -43,8 +43,15 @@
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="header-wrap">
-					{% include 'head.html' %}
-				</div>
+                    <div class="header-top d-flex justify-content-between align-items-center">
+                        <div class="logo">
+{#                            <a href="javascript:void(0);" class="genric-btn success-border circle" onclick="change_style();return false;">反向模式</a>#}
+                        </div>
+                        <div class="main-menubar d-flex align-items-center">
+                            <div><a href="{% url 'login' %}">退出</a></div>
+                        </div>
+				    </div>
+                </div>
 			</header>
 		<!-- End Header Area -->
 {#		<!-- Start Banner Area -->#}
@@ -162,21 +169,21 @@
                         <div class="section-top-border"  style="margin-left: 8%;margin-right: 8%">
 					        <h3 class="mb-30" style="font-size: 35px;text-align: center;margin-top: -2%">题目选择</h3>
 					        <div class="row" style="float:left;width:48%;border:1px solid #000;">
-                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;background: black">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;">
 							        <a href="{% url 'mnist' %}"><img src="{% static 'img/决策树.jpg' %}" width="100%" height="100%" alt="实验一图片" class="img-fluid"></a>
 						        </div>
-                                <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
+                                <div class="col-md-9 mt-sm-20" style="background: lightskyblue;">
                                     <div style="padding-top: 5px;margin-bottom: -5px">
 							        <p style="color: black;font-size: 15px"> <b style="color: black;font-size: 25px;">决策树实验</b>实验说明：根据现实生活中的原型自己创建一个简单的决策树；要求用这个决策树能解决实际分类决策问题</p>
 						            </div>
                                 </div>
 					        </div>
 
-                            <div class="row" style="float:left;position: relative;margin-left: 4%;margin-bottom: 20px;width:48%;border:1px solid #000">
+                            <div class="row" style="float:left;position: relative;margin-left: 4%;margin-bottom: 30px;width:48%;border:1px solid #000">
                                 <div class="col-md-3" style="display: flex;justify-content: center;padding: 0">
                                     <a href="{% url 'mnist' %}"><img src="{% static 'img/人脸识别.jpg' %}" width="100%" height="100%"  alt="实验二图片" class="img-fluid"></a>
                                 </div>
-                                <div class="col-md-9 mt-sm-20" style="background: #00b3ee;">
+                                <div class="col-md-9 mt-sm-20" style="background: lightskyblue;">
                                     <div style="padding-top: 5px;margin-bottom: -5px">
                                         <p style="color: black;font-size: 15px"><b style="color: black;font-size: 25px;">人脸识别实验</b> 实验说明：在人脸库中有15个人，每人有11幅图像。要求选定每个人的若干图像组成样本库，由它得到特征库，再任取图像库的一张图片，识别他的身份</p>
                                     </div>
@@ -184,7 +191,7 @@
                             </div>
 
 					        <div class="row" style="float:left;width:48%;border:1px solid #000;">
-                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;background: black">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;">
                                     <a  href="{% url 'mnist' %}"><img src="{% static 'img/手写识别.jpg' %}" width="100%" height="100%" alt="实验三图片" class="img-fluid"></a>
                                 </div>
                                 <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
@@ -194,7 +201,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="float:left;position: relative;margin-left: 4%;margin-bottom: 20px;width:48%;border:1px solid #000">
+                            <div class="row" style="float:left;position: relative;margin-left: 4%;margin-bottom: 30px;width:48%;border:1px solid #000">
                                 <div class="col-md-3" style="display: flex;justify-content: center;padding: 0">
                                     <a href="{% url 'mnist' %}"><img src="{% static 'img/房价预测.jpg' %}" width="100%" height="100%"  alt="实验二图片" class="img-fluid"></a>
                                 </div>
@@ -206,7 +213,7 @@
                             </div>
 
 					        <div class="row" style="float:left;width:48%;border:1px solid #000;">
-                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;background: black">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;">
                                     <a  href="{% url 'mnist' %}"><img src="{% static 'img/情感分析.jpg' %}" width="100%" height="100%" alt="实验三图片" class="img-fluid"></a>
                                 </div>
                                 <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
@@ -215,8 +222,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" style="float:left;position: relative;margin-left: 4%;margin-bottom: 20px;width:48%;border:1px solid #000">
-                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;background: black">
+                            <div class="row" style="float:left;position: relative;margin-left: 4%;margin-bottom: 0px;width:48%;border:1px solid #000">
+                                <div class="col-md-3" style="display: flex;justify-content: center;padding: 0;">
                                     <a  href="{% url 'mnist' %}"><img src="{% static 'img/大数据测试.jpg' %}" width="100%" height="100%" alt="实验三图片" class="img-fluid"></a>
                                 </div>
                                 <div class="col-md-9 mt-sm-20" style="background: #00b3ee">
