@@ -17,10 +17,10 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from page.urls import *
 from api.urls import *
-from page.views import test
+from page.views import login
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('page/',include('page.urls')),
     url('api/',include('api.urls')),
-    url('',test)
+    url('',login)
 ]

@@ -54,11 +54,11 @@
 					<div class="col-lg-10">
 						<div class="banner-content text-center"  style="margin-top: 5%">
 							<h2>人机交互试验系统</h2>
-							<p>Welcome to use this experimental system</p>
+							<p>Welcome to this experimental system</p>
 						</div>
 					</div>
 					<div class="col-lg-5 col-md-5 col-sm-4">
-						<img src="static/img/banner.png" alt="" class="img-fluid">
+
 					</div>
 				</div>
 			</div>
@@ -67,25 +67,27 @@
             <div class="white-bg">
                 <div class="container">
                     <div class="section-top-border" style="background: white;" align="center">
-                        <div class="col-lg-8 col-md-8" style="background: lightskyblue;text-align: center;width: 500px;border-radius: 10px">
-                            <div style="text-align: left"><b style="color: black;">username</b></div>
+                        <div class="col-lg-8 col-md-8" style="background: #bae7ff;text-align: center;width: 500px;border-radius: 10px">
+                            <br>
+                            <div style="text-align: left"><b style="color: black;">用户名</b></div>
                             <div class="input-group-icon mt-10">
 								<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-								<input type="text" name="username" placeholder="username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'username'" required class="single-input">
+								<input type="text" value="朱小磊" name="username" placeholder="username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'username'" required class="single-input">
 							</div>
-                            <div style="text-align: left"><b style="color: black;">password</b></div>
+                            <br>
+                            <div style="text-align: left"><b style="color: black;">密码</b></div>
                             <div class="input-group-icon mt-10" style="margin-bottom: 20px">
 								<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-								<input type="password" name="password" placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'password'" required class="single-input">
+								<input type="password" value="123456" name="password" placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'password'" required class="single-input">
 							</div>
                             <div>
-                                <div class="confirm-checkbox">
-									<input type="checkbox" id="confirm-checkbox">
-                                    <label for="confirm-checkbox"></label>
-								</div>
+{#                                <div class="confirm-checkbox">#}
+{#									<input type="checkbox" id="confirm-checkbox">#}
+{#                                    <label for="confirm-checkbox"></label>#}
+{#								</div>#}
                                 <div style="text-align: right"><a href="{% url 'login' %}"><i style="color: black">忘记密码?</i></a></div>
                             </div>
-                            <a href="{% url 'question' %}" class="genric-btn info-border circle arrow" style="margin-bottom: 20px">Login<span class="lnr lnr-arrow-right"></span></a>
+                            <a href="{% url 'question' %}" class="genric-btn info-border circle arrow" style="margin-bottom: 20px">登录<span class="lnr lnr-arrow-right"></span></a>
 
                         </div>
                     </div>

@@ -65,13 +65,12 @@
     <section class="section-gap skill-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7"></div>
-                <div class="col-lg-5">
-                    <a href="javascript:void(0);" class="genric-btn info circle">查看代码</a>
+                <div class="col-lg-8"></div>
+                <div class="col-lg-4">
                     &nbsp;&nbsp;&nbsp;
                     <a href="{% url 'mnist' %}" class="genric-btn info circle">简单模式</a>
                     &nbsp;&nbsp;&nbsp;
-                    <a href="javascript:" class="genric-btn info circle" onclick="draw_model();return false;">生成效果图</a>
+{#                    <a href="javascript:" class="genric-btn info circle" onclick="draw_model();return false;">生成效果图</a>#}
                 </div>
 
             </div>
@@ -125,13 +124,11 @@
                             </div>
                             <div class="col-lg-5" style="margin-left: 8px">
                                 <div class="default-select">
-                                    <label>
                                         <select>
-                                            <option value="1">全连接层</option>
                                             <option value="1">卷积层</option>
+                                            <option value="1">全连接层</option>
                                             <option value="1">池化层</option>
                                         </select>
-                                    </label>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -145,13 +142,11 @@
                             </div>
                             <div class="col-lg-6" style="margin-left: 8px">
                                 <div class="default-select">
-                                    <label>
                                         <select>
                                             <option value="1">relu</option>
                                             <option value="1">sigmoid</option>
                                             <option value="1">softmax</option>
                                         </select>
-                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -180,13 +175,11 @@
                             </div>
                             <div class="col-lg-5" style="margin-left: 8px">
                                 <div class="default-select">
-                                    <label>
                                         <select>
                                             <option value="1">全连接层</option>
                                             <option value="1">卷积层</option>
                                             <option value="1">池化层</option>
                                         </select>
-                                    </label>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -200,13 +193,11 @@
                             </div>
                             <div class="col-lg-6" style="margin-left: 8px">
                                 <div class="default-select">
-                                    <label>
                                         <select>
                                             <option value="1">relu</option>
                                             <option value="1">sigmoid</option>
                                             <option value="1">softmax</option>
                                         </select>
-                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -235,13 +226,11 @@
                             </div>
                             <div class="col-lg-5" style="margin-left: 8px">
                                 <div class="default-select">
-                                    <label>
                                         <select>
                                             <option value="1">全连接层</option>
                                             <option value="1">卷积层</option>
                                             <option value="1">池化层</option>
                                         </select>
-                                    </label>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -255,13 +244,11 @@
                             </div>
                             <div class="col-lg-6" style="margin-left: 8px">
                                 <div class="default-select">
-                                    <label>
                                         <select>
                                             <option value="1">relu</option>
                                             <option value="1">sigmoid</option>
                                             <option value="1">softmax</option>
                                         </select>
-                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -329,6 +316,7 @@
         cnt++;
         for (var i = 0; i < 4; i++)
             $('#row' + cnt + '_' + i).css('display', '');
+        draw_model();
     }
 
     function delete_form(index) {
@@ -336,6 +324,7 @@
             $('#row' + index + '_' + i).css('display', 'none');
         }
         cnt--;
+        draw_model();
     }
 
     function change_style() {
