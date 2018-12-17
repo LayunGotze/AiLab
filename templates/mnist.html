@@ -76,7 +76,7 @@
                                         </canvas>
                                         <div id="result_add" style="display: none">
                                             <h3 id="mnist_result"></h3>
-                                            <button onclick="alert('已加入训练集')" class="genric-btn info circle" style="padding:0 17px">加入训练集</button>
+                                            <button onclick="addData()" class="genric-btn info circle" style="padding:0 17px">加入训练集</button>
                                         </div>
 
                                     </div>
@@ -120,10 +120,11 @@
     ctx.borderRadius = 2000;
     ctx.fillStyle="white";
     ctx.fillRect(0, 0, c.width, c.height);
-    var y_adjust = 200;
-    var x_adjust = 100;
+    var y_adjust = 170;
+    var x_adjust = 435;
     var current_x = 0;
     var current_y = 0;
+    var predict_result = 0;
 
     c.onmousedown = function(e){
         paint = !paint;
@@ -194,8 +195,12 @@
         {#console.log(image.src);#}
 
         $.post('/api/mnist',{"image": image.src},function (data) {
+            predict_result = data["res"];
             $('#mnist_result').text('识别结果:'+data["res"]);
         });
         $('#result_add').css('display','');
+    }
+    function addData() {
+        var person=prompt("请输入正确标签","" + predict_result);
     }
 </script>
