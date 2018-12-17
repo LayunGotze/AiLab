@@ -12,7 +12,7 @@ IDE：PyCharm
 
 ### 2.1 代码结构
 
-![directory](img/directory.png)
+ <div align="center">![directory](img/directory.png)</div>
 
 一个`Django`项目下可以创建多个 app 以划分不同的功能。目前已经创建好了两个 app ，一个是`api`，负责后端接口；一个是`page`，
 负责前端渲染。也就是项目目录下的`api/`和`page/`文件夹。
@@ -26,12 +26,9 @@ IDE：PyCharm
 
 ### 2.2 手写体识别
 
-
 我们采用LeNet-5卷积神经网络模型，卷积神经网络能够很好的利用图像的结构信息，每个卷积层有多个卷积核或者过滤器，买个过滤器都有自己所关注的图像特征，比如垂直和水平的边缘、一些纹理等等，这些所有的神经元加起来就可以提取出整张图像的特征集合。以下是LeNet-5的网络结构：
 
-![LeNet-5](img/LeNet-5.png)
-
-本项目所使用的参数与上述网络结构稍有不同，以下是具体介绍：
+ <div align="center">![LeNet-5](img/LeNet-5.png)</div>
 
 ##### 第一层，卷积层
 输入层，接收原始图像为输入，采用的过滤器的尺寸为5*5，使用全0填充，步长为1，深度为32。
@@ -69,7 +66,7 @@ IDE：PyCharm
 首先把项目 clone 到本地，然后用 PyCharm 打开项目文件夹，如果 PyCharm 识别出这是一个`Django`项目
 （ 需要 PyCharm Professional ），如下图所示
 
-![pycharm](img/pycharm.png)
+ <div align="center">![pycharm](img/pycharm.png)</div>
 
 此时可以直接点击图中绿色的运行按钮，就可以把项目跑起来。
 
@@ -86,13 +83,13 @@ IDE：PyCharm
 
 启动服务以后，在浏览其中访问 [127.0.0.1:8000](http://127.0.0.1:8000) 即可进入登录页面。
 
-![login](img/login.png)
+ <div align="center">![login](img/login.png)</div>
 
 输入用户名和密码后点击登录按钮跳转到题目选择页面。
 
 ### 3.2 题目选择
 
-![questions](img/questions.png)
+ <div align="center">![questions](img/questions.png)</div>
 
 在选题页面中共有六个问题可供选择，但除手写体识别实验之外，其他实验内容尚未开发完成。
 
@@ -100,7 +97,7 @@ IDE：PyCharm
 
 ### 3.3 手写体识别
 
-![mnist](img/mnist.png)
+ <div align="center">![mnist](img/mnist.png)</div>
 
 在这个页面，用户可以直接用鼠标书写数字或者上传图片，点击识别按钮会调用训练好的神经网络模型对输入的图片进行预测。
 预测结果显示在右上角，可以选择将该图片加入训练集中。
@@ -109,19 +106,18 @@ IDE：PyCharm
 
 ### 3.4 模型调试
 
-![model](img/model.png)
+ <div align="center">![model](img/model.png)</div>
 
 这个页面主要分为左右两部分，左侧是模型的可视化，右侧是模型参数调节面板。
 
 用户可以更改网络层数，以及每一层的网络类型，激活函数以及 Dropout 选项。在调整模型参数的过程中，模型可视化效果图会实时更新。
 
-模型搭建完毕以后，点击运行按钮可以在当前参数设置下进行（模拟）训练，5秒后训练结束，输出准确率，
-并在左侧显示 Accuracy 曲线和 Loss 曲线。
+模型搭建完毕以后，点击运行按钮可以在当前参数设置下进行（模拟）训练，5秒后训练结束，输出准确率，并在左侧显示 Accuracy 曲线和 Loss 曲线。
 
 此时可以点击提交按钮以提交训练成绩。
 
 ### 3.5 查看排名
 
-![rank](img/rank.png)
+<div align="center">![rank](img/rank.png)</div>
 
 在排名页面，可以看到所有人的最好成绩，自己的成绩以浅黄色背景突出显示。
