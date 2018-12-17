@@ -14,32 +14,43 @@ IDE：PyCharm
 
 ![directory](img/directory.png)
 
-一个django项目下可以创建多个app以划分不同的功能。目前已经创建好了两个app，一个是api，负责后端接口；一个是page，负责前端渲染。也就是项目目录下的api和page文件夹。
+一个`Django`项目下可以创建多个 app 以划分不同的功能。目前已经创建好了两个 app ，一个是`api`，负责后端接口；一个是`page`，
+负责前端渲染。也就是项目目录下的`api/`和`page/`文件夹。
 
-static文件夹存储静态资源，也就是bootstrap模板的资源。
+`static/`文件夹存储静态资源，也就是 bootstrap 模板的资源。
 
-templates文件夹中是前端的html代码。
+`templates/`文件夹中是前端的 html 代码。
 
-AiLab文件夹中则是与项目相关的配置文件。
+`AiLab/`文件夹中则是与项目相关的配置文件。
 
 
 ### 2.2 手写体识别
 
 ### 2.3 前端展示
 
+1. `page/views.py`中定义了视图函数，每个视图函数负责渲染相应的`templates`中的 html 页面。
+
+2. `page/urls.py`负责完成视图函数与 url 的绑定，以便在浏览器中通过 url 访问页面。
+
+3. `templates/`中保存全部前端页面，`login.html`是登录页，`mnist.html`是手写图识别页,`model.html`是模型调参页，
+`question.html`是选择题目页，`rank.html`是排名页。如果需要修改这五个页面中的内容，直接修改这个五个 html 文件
+即可。如果需要额外添加页面，则需要在`page/views.py`定义对应的视图函数，并在`page/urls.py`中完成视图函数与 url 的绑定。
+
 ### 2.4 运行项目
 
-首先把项目clone到本地，然后用PyCharm打开项目文件夹，如果PyCharm识别出这是一个Django项目（需要PyCharm Professional），如下图所示
+首先把项目 clone 到本地，然后用 PyCharm 打开项目文件夹，如果 PyCharm 识别出这是一个`Django`项目
+（ 需要 PyCharm Professional ），如下图所示
 
 ![pycharm](img/pycharm.png)
 
 此时可以直接点击图中绿色的运行按钮，就可以把项目跑起来。
 
-如果PyCharm没有识别出这是一个Django项目也没关系，在下方Terminal中输入`python manage.py runserer`然后回车也可以把项目跑起来。
+如果 PyCharm 没有识别出这是一个`Django`项目也没关系，在下方 Terminal 中输入`python manage.py runserer`
+然后回车也可以把项目跑起来。
 
-项目跑起来之后，在浏览器中访问 127.0.0.1:8000 即可访问项目主页。
+项目跑起来之后，在浏览器中访问 [127.0.0.1:8000](http://127.0.0.1:8000) 即可访问项目主页。
 
-如果项目启动失败，可能是由于项目所需的包没有安装，可以在PyCharm中检查一下。
+如果项目启动失败，可能是由于项目所需的包没有安装，可以在 PyCharm 中检查一下。
 
 ## 3. 使用说明
 
@@ -63,13 +74,23 @@ AiLab文件夹中则是与项目相关的配置文件。
 
 ![mnist](img/mnist.png)
 
-// TODO
+在这个页面，用户可以直接用鼠标书写数字或者上传图片，点击识别按钮会调用训练好的神经网络模型对输入的图片进行预测。
+预测结果显示在右上角，可以选择将该图片加入训练集中。
+
+点击右上角的开发者模式按钮可以进入模型调试页面。
 
 ### 3.4 模型调试
 
 ![model](img/model.png)
 
-// TODO
+这个页面主要分为左右两部分，左侧是模型的可视化，右侧是模型参数调节面板。
+
+用户可以更改网络层数，以及每一层的网络类型，激活函数以及 Dropout 选项。在调整模型参数的过程中，模型可视化效果图会实时更新。
+
+模型搭建完毕以后，点击运行按钮可以在当前参数设置下进行（模拟）训练，5秒后训练结束，输出准确率，
+并在左侧显示 Accuracy 曲线和 Loss 曲线。
+
+此时可以点击提交按钮以提交训练成绩。
 
 ### 3.5 查看排名
 
