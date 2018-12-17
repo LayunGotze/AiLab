@@ -32,82 +32,85 @@
 	<meta charset="UTF-8">
 	<!-- Site Title -->
 	<title>手写数字</title>
-
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500" rel="stylesheet">
-		<!--
-		CSS
-		============================================= -->
 
 	</head>
 	<body class="dup-body">
-		<div class="dup-body-wrap">
-			<!-- Start Header Area -->
-			<header class="default-header">
+        <div class="dup-body-wrap">
+        <!-- Start Header Area -->
+            <header class="default-header">
 				<div class="header-wrap">
 					{% include 'head.html' %}
 				</div>
 			</header>
-        </div>
-		<!-- End Header Area -->
-		<!-- Start Banner Area -->
-		<section class="section-gap skill-area" style="background: #e6fffb">
-{#			<div class="overlay overlay-bg"></div>#}
-			<div class="container" style="background: #e6fffb">
-
-                <div class="row">
-                <div class="col-lg-8"></div>
-                <div class="col-lg-4">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- End Header Area -->
+        <!-- Start Skill Area -->
+            <section class="section-gap skill-area" {# style="background: url({% static 'img/mnist背景.jpg' %});"#}>
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-lg-8"></div>
+                        <div class="col-lg-4">
                     <a href="{% url 'model' %}" class="genric-btn info circle">开发模式</a>
                 </div>
                     </div>
-				<div class="row">
-                    <div style="width: 29%;') "></div>
-                    <table width="500" style="margin-top: 20px;border:0">
-                        <tr>
-                            <td style="width:500px;vertical-align:top;">
-
-                                <div style="margin-left:100px;width:500px;height: 500px;" >
-                                    <h3 style="margin-left: 60px">请在下方写入数字</h3>
-
-                                    <div class="row">
-                                        <canvas id="myCanvas" width="350" height="350" style="border:1px solid #d3d3d3;">
-                    {#                    <canvas class="drawing-board-canvas" width="280" height="280" style="width: 280px; height: 280px;"></canvas>#}
+                    <br>
+				    <div class="row">
+                        <div class="col-lg-5" style="margin-top: 2px">
+                            <h3>说明</h3>
+                            <h4>①手写模式</h4>
+                            <p>    在右边的方框中点击并拖动鼠标，可以进行手写，手写完毕后，单击识别，可以获得识别得到的结果</p>
+                            <h4>②读图模式</h4>
+                            <p>    点击上传图像，选择本地文件并上传，本地文件将加载在手写框中，单击识别，可以获得识别得到的结果</p>
+                            <h4>③开发者模式</h4>
+                            <p>    点击开发者模式，可以浏览整个网络的架构并对参数进行修改，也可以获得训练过程中的参数变化曲线</p>
+                            <h4>④加入训练集</h4>
+                            <p>    识别完毕后，点击加入训练集，可以将当前的图像加入训练集，在下次训练的时候将把本图一并作为训练时的数据输入</p>
+                            <h4>⑤清空按钮</h4>
+                            <p>    如果需要进行其他图像的识别，请点击清空按钮清除当前画板上的输入</p>
+                        </div>
+                        <div class="col-lg-7" style="margin: auto">
+                            <table width="600" style="border:0">
+                            <tr>
+                            <td style="width:600px;vertical-align:top;">
+                                <div style="width:600px;height: 600px;margin: auto" >
+                                    <h3 style="text-align: center">请在下方写入数字</h3>
+                                    <div class="row" style="margin: auto;width: 400px">
+                                        <canvas id="myCanvas" width="400" height="400" style="border:1px solid #d3d3d3;">
+                                            <canvas class="drawing-board-canvas" width="280" height="280" style="width: 280px; height: 280px;"></canvas>
                                         </canvas>
-                                        <div id="result_add" style="display: none">
-                                            <h3 id="mnist_result"></h3>
-                                            <button onclick="addData()" class="genric-btn info circle" style="padding:0 17px">加入训练集</button>
-                                        </div>
-
                                     </div>
-                                    <div class="row" style="margin-top: 20px">
-
-                                        <div class="col-lg-3">
-                                                <button onclick="clearCanvas()" class="genric-btn info circle" style="padding:0 17px">清空</button>
-                                        </div>
-                                        <div class="col-lg-3">
-                                                <button onclick="predict()" class="genric-btn success circle" style="height:42px;padding:0 17px">识别</button>
-                                        </div>
-                                        <div class="col-lg-3">
+                                    <div class="row" style="margin-top: 20px;width: 400px;margin: auto">
+                                        <div class="col-lg-4" style="margin: auto">
                                             <a href="javascript:void(0);" class="genric-btn info circle" onclick="do_input()" style="padding:0 17px">上传图片</a>
                                         </div>
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-3"style="margin: auto">
+                                                <button onclick="clearCanvas()" class="genric-btn info circle" style="padding:0 17px">清空</button>
+                                        </div>
+                                        <div class="col-lg-3"style="margin: auto">
+                                                <button onclick="predict()" class="genric-btn success circle" style="height:42px;padding:0 17px">识别</button>
+                                        </div>
                                     </div>
+                                    <div class="row" id="result_add" style="display: none;margin: auto;width: 400px;margin-top: 20px">
+                                        <div class="col-lg-4"style="margin:auto">
+                                              <h4>识别结果：</h4>
+                                        </div>
+                                        <div class="col-lg-2" style="margin: auto">
+                                            <h4 id="mnist_result"></h4>
+                                        </div>
+                                        <div class="col-lg-6" style="margin: auto">
+                                            <button onclick="addData()" class="genric-btn info circle" style="padding:0 17px">加入训练集</button>
+                                        </div>
                                     </div>
                                 </div>
                             </td>
-                        </tr>
-                    </table>
-
-					<div class="col-lg-5 col-md-5 col-sm-4" style="margin-right: 100px">
-                        <h3 id="mnist_result"></h3>
-					</div>
-                    <div style="width: 20%"></div>
-{#                    <div class="col-lg-5 col-md-5 col-sm-4"></div>#}
-
-				</div>
-			</div>
-		</section>
-
+                            </tr>
+                        </table>
+                        </div>
+				    </div>
+                </div>
+            </section>
+        </div>
 	</body>
 </html>
 <script>
@@ -121,7 +124,7 @@
     ctx.fillStyle="white";
     ctx.fillRect(0, 0, c.width, c.height);
     var y_adjust = 170;
-    var x_adjust = 435;
+    var x_adjust = 600;
     var current_x = 0;
     var current_y = 0;
     var predict_result = 0;
@@ -196,7 +199,7 @@
 
         $.post('/api/mnist',{"image": image.src},function (data) {
             predict_result = data["res"];
-            $('#mnist_result').text('识别结果:'+data["res"]);
+            $('#mnist_result').text(data["res"]);
         });
         $('#result_add').css('display','');
     }

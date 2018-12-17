@@ -8,5 +8,6 @@ urlpatterns=[
     url('question',question,name='question'),
     url('rank',rank,name='rank'),
     url('mnist',mnist,name='mnist'),
-    url('model',model,name='model')
+    url('model',model,name='model'),
+    url('elements',model,name='elements')
 ]
