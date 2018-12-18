@@ -44,15 +44,17 @@
 				</div>
 			</header>
         <!-- End Header Area -->
+
         <!-- Start Skill Area -->
             <section class="section-gap skill-area" {# style="background: url({% static 'img/mnist背景.jpg' %});"#}>
-                <div class="container" >
-                    <div class="row">
-                        <div class="col-lg-8"></div>
-                        <div class="col-lg-4">
-                    <a href="{% url 'model' %}" class="genric-btn info circle">开发模式</a>
+                <div class="row" style="width: 101%">
+                        <div class="col-lg-10"></div>
+                        <div class="col-lg-2" style="text-align: right">
+                            <a href="{% url 'model' %}" class="genric-btn info circle">开发模式</a>
+                        </div>
                 </div>
-                    </div>
+                <div class="container" >
+
                     <br>
 				    <div class="row">
                         <div class="col-lg-5" style="margin-top: 2px">
@@ -73,32 +75,32 @@
                             <tr>
                             <td style="width:600px;vertical-align:top;">
                                 <div style="width:600px;height: 600px;margin: auto" >
-                                    <h3 style="text-align: center">请在下方写入数字</h3>
+                                    <h3 style="text-align: center">请在下方写入/上传数字</h3>
                                     <div class="row" style="margin: auto;width: 400px">
                                         <canvas id="myCanvas" width="400" height="400" style="border:1px solid #d3d3d3;">
                                             <canvas class="drawing-board-canvas" width="280" height="280" style="width: 280px; height: 280px;"></canvas>
                                         </canvas>
                                     </div>
-                                    <div class="row" style="margin-top: 20px;width: 400px;margin: auto">
-                                        <div class="col-lg-4" style="margin: auto">
+                                    <div class="row" style="margin-top: 20px;width: 430px;margin: auto;margin-top: 20px">
+                                        <div class="col-lg-4" style="text-align: left">
                                             <a href="javascript:void(0);" class="genric-btn info circle" onclick="do_input()" style="padding:0 17px">上传图片</a>
                                         </div>
                                         <div class="col-lg-2"></div>
-                                        <div class="col-lg-3"style="margin: auto">
+                                        <div class="col-lg-3"style="text-align: right">
                                                 <button onclick="clearCanvas()" class="genric-btn info circle" style="padding:0 17px">清空</button>
                                         </div>
-                                        <div class="col-lg-3"style="margin: auto">
+                                        <div class="col-lg-3"style="text-align: right">
                                                 <button onclick="predict()" class="genric-btn success circle" style="height:42px;padding:0 17px">识别</button>
                                         </div>
                                     </div>
-                                    <div class="row" id="result_add" style="display: none;margin: auto;width: 400px;margin-top: 20px">
-                                        <div class="col-lg-4"style="margin:auto">
+                                    <div class="row" id="result_add" style="display: none;margin: auto;width: 430px;margin-top: 20px">
+                                        <div class="col-lg-4"style="margin:auto;">
                                               <h4>识别结果：</h4>
                                         </div>
-                                        <div class="col-lg-2" style="margin: auto">
+                                        <div class="col-lg-2" style="margin: auto;">
                                             <h4 id="mnist_result"></h4>
                                         </div>
-                                        <div class="col-lg-6" style="margin: auto">
+                                        <div class="col-lg-6" style="text-align: right">
                                             <button onclick="addData()" class="genric-btn info circle" style="padding:0 17px">加入训练集</button>
                                         </div>
                                     </div>
