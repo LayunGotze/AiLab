@@ -90,7 +90,7 @@ IDE：PyCharm
 
 ### 3.2 题目选择
 
- <div align="center">![questions](img/questions.png)</div>
+ <div align="center"><img src = "img/questions.png" /></div>
 
 在选题页面中共有六个问题可供选择，但除手写体识别实验之外，其他实验内容尚未开发完成。
 
